@@ -6,12 +6,13 @@ import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
+import SidebarNav from '@/components/SidebarNav'
 import { Testimonials } from '@/components/Testimonials'
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <SidebarNav />
       <main>
         <Hero />
         <PrimaryFeatures />
