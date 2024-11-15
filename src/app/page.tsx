@@ -13,16 +13,15 @@ export default function Home() {
   return (
     <>
       <SidebarNav />
-      <main>
-        <Hero />
-        <PrimaryFeatures />
-        <SecondaryFeatures />
-        <CallToAction />
-        <Testimonials />
-        <Pricing />
-        <Faqs />
-      </main>
+        <main>
+          <PrimaryFeatures />
+          <SecondaryFeatures />
+          <CallToAction />
+          <Testimonials />
+          <Pricing />
+          <Faqs />
+        </main>
       <Footer />
     </>
   )
-}
+} 
