@@ -14,6 +14,7 @@ export default function Home() {
     <>
       <SidebarNav />
         <main>
+          <Hero />
           <PrimaryFeatures />
           <SecondaryFeatures />
           <CallToAction />
