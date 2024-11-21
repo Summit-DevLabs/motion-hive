@@ -12,16 +12,15 @@ import { Testimonials } from '@/components/Testimonials'
 export default function Home() {
   return (
     <>
-      <SidebarNav />
-        <main>
-          <Hero />
-          <PrimaryFeatures />
-          <SecondaryFeatures />
-          <CallToAction />
-          <Testimonials />
-          <Pricing />
-          <Faqs />
-        </main>
+      <Header />
+      <main>
+        <PrimaryFeatures />
+        <SecondaryFeatures />
+        <CallToAction />
+        <Testimonials />
+        <Pricing />
+        <Faqs />
+      </main>
       <Footer />
     </>
   )
