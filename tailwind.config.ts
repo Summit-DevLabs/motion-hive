@@ -27,6 +27,7 @@ export default {
       fontFamily: {
         sans: 'var(--font-inter)',
         display: 'var(--font-lexend)',
+        'space-grotesk': 'var(--font-space-grotesk)',
       },
       maxWidth: {
         '2xl': '40rem',
