@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner'
 import { CallToAction } from '@/components/CallToAction'
 import { Faqs } from '@/components/Faqs'
 import { Footer } from '@/components/Footer'
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <PrimaryFeatures />
+        <Banner />
         <SecondaryFeatures />
         <CallToAction />
         <Testimonials />
