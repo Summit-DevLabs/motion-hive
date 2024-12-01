@@ -2,10 +2,10 @@ import { CogIcon } from "@/images/icons/CogIcon"
 
 export default function OurValues() {
   return (
-    <div className="bg-primary py-24 sm:py-32">
+    <div className="bg-secondary py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-secondary sm:text-5xl">
+          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-tertiary sm:text-5xl">
             All-in-one platform
           </h2>
           <p className="mt-6 text-lg/8 text-gray-600">
