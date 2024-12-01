@@ -85,13 +85,13 @@ function MobileNavigation() {
 export function Header() {
   return (
     <header className="bg-[#242423]">
-      <div className="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+      <div className="flex items-center justify-between h-16 sm:px-6 ">
         <div className="flex items-center">
           <Image src={logo} alt="Logo" width={32} height={32} />
           <h2 className="ml-3 text-white">Motion Hive</h2>
         </div>
+        <SidebarNav />
       </div>
-      <SidebarNav />
     </header>
   )
 }
