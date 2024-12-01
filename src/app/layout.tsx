@@ -1,6 +1,8 @@
 import { type Metadata } from 'next'
 import { Inter, Lexend, Space_Grotesk } from 'next/font/google'
 import clsx from 'clsx'
+import { Header } from '@/components/Header'
+import { Footer } from '@/components/Footer'
 
 import '@/styles/tailwind.css'
 
@@ -46,7 +48,11 @@ export default function RootLayout({
         spaceGrotesk.variable,
       )}
     >
-      <body className="flex h-full flex-col">{children}</body>
+      <body className="flex h-full flex-col">
+        <Header />
+        <main className="flex-grow">{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }
