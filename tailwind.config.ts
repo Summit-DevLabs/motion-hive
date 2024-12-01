@@ -32,6 +32,10 @@ export default {
       maxWidth: {
         '2xl': '40rem',
       },
+      colors: {
+        primary: '#ede8df', // background light cream
+        secondary: '#242423' // text dark grey
+      }
     },
   },
   plugins: [
