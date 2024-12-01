@@ -72,7 +72,10 @@ export default function SidebarNav() {
               <nav className="flex flex-1 flex-col">
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
-                    <li key={item.name}>
+                    <li
+                    key={item.name}
+                    onClick={() => setSidebarOpen(false)}
+                    >
                       <Link href={item.href}
                         className={classNames(
                           item.current
@@ -93,8 +96,8 @@ export default function SidebarNav() {
         </div>
       </Dialog>
 
-      <div className="lg:pr-12 bg-[#242423]">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-gray-200 bg-[#242423] px-4 sm:px-6 lg:px-8">
+      <div className="bg-[#242423]">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-gray-200 bg-[#242423]">
           <div className="flex-1"></div> {/* This div takes up the remaining space */}
           <button
             type="button"
@@ -105,10 +108,6 @@ export default function SidebarNav() {
             <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
           </button>
         </div>
-
-        <main className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">{/* Your content */}</div>
-        </main>
       </div>
     </>
   )
