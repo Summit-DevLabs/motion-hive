@@ -33,8 +33,9 @@ export default {
         '2xl': '40rem',
       },
       colors: {
-        primary: '#ede8df', // background light cream
-        secondary: '#242423' // text dark grey
+        primary: '#333533', // background dark grey
+        secondary: '#ede8df', // background light cream
+        tertiary: '#242423' // text dark grey
       }
     },
   },

@@ -1,10 +1,10 @@
 export default function Team() {
   return (
-    <div className="bg-primary py-24 sm:py-32">
+    <div className="bg-secondary pointer-events-none py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-secondary sm:text-5xl">Our team</h2>
-          <p className="mt-6 text-lg/8 text-secondary">
+          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-tertiary sm:text-5xl">Our team</h2>
+          <p className="mt-6 text-lg/8 text-tertiary">
             We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
             best results for our clients.
           </p>
@@ -16,9 +16,9 @@ export default function Team() {
           {people.map((person) => (
             <li key={person.name}>
               <img alt="" src={person.imageUrl} className="aspect-[14/13] w-full rounded-2xl object-cover" />
-              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-secondary">{person.name}</h3>
-              <p className="text-base/7 text-secondary">{person.role}</p>
-              <p className="text-sm/6 text-secondary">{person.location}</p>
+              <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-tertiary">{person.name}</h3>
+              <p className="text-base/7 text-tertiary">{person.role}</p>
+              <p className="text-sm/6 text-tertiary">{person.location}</p>
             </li>
           ))}
         </ul>
