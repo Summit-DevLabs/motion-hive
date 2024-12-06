@@ -1,29 +1,29 @@
 export const projects = [
   {
-    name: 'Minimal and thoughtful',
+    name: 'Project 1',
     description:
-      'Our laptop sleeve is compact and precisely fits 13" devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.',
+      'Anim cillum labore id eiusmod proident ullamco ut laborum velit commodo elit consequat. Sunt minim adipisicing amet duis labore. Reprehenderit mollit esse qui. Excepteur proident exercitation laborum aliqua occaecat.',
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-feature-07-detail-01.jpg',
     imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
   },
   {
-    name: 'Refined details',
+    name: 'Project 2',
     description:
-      'We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.',
+      'Anim cillum labore id eiusmod proident ullamco ut laborum velit commodo elit consequat. Sunt minim adipisicing amet duis labore. Reprehenderit mollit esse qui. Excepteur proident exercitation laborum aliqua occaecat.',
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-feature-07-detail-02.jpg',
     imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
   },
   {
-    name: 'Minimal and thoughtful',
+    name: 'Project 3',
     description:
-      'Our laptop sleeve is compact and precisely fits 13" devices. The zipper allows you to access the interior with ease, and the front pouch provides a convenient place for your charger cable.',
+      'Anim cillum labore id eiusmod proident ullamco ut laborum velit commodo elit consequat. Sunt minim adipisicing amet duis labore. Reprehenderit mollit esse qui. Excepteur proident exercitation laborum aliqua occaecat.',
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-feature-07-detail-01.jpg',
     imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
   },
   {
-    name: 'Refined details',
+    name: 'Project 4',
     description:
-      'We design every detail with the best materials and finishes. This laptop sleeve features durable canvas with double-stitched construction, a felt interior, and a high quality zipper that hold up to daily use.',
+      ' Sunt minim adipisicing amet duis labore',
     imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-feature-07-detail-02.jpg',
     imageAlt: 'Detail of zipper pull with tan leather and silver rivet.',
   },

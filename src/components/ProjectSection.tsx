@@ -5,7 +5,7 @@ function classNames(...classes: any) {
 
 export default function ProjectSections({ projects } : any) {
   return (
-    <div className="bg-white">
+    <div className="bg-primary">
       <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
         <div className="mt-16 space-y-16">
           {projects.map((project: any, i: number) => (
@@ -21,10 +21,10 @@ export default function ProjectSections({ projects } : any) {
                   "mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4",
                 )}
               >
-                <h3 className="text-lg font-medium text-gray-900">
+                <h3 className="text-lg font-medium text-white">
                   {project.name}
                 </h3>
-                <p className="mt-2 text-sm text-gray-500">
+                <p className="mt-2 text-sm text-white">
                   {project.description}
                 </p>
               </div>
@@ -39,7 +39,7 @@ export default function ProjectSections({ projects } : any) {
                 <img
                   alt={project.imageAlt}
                   src={project.imageSrc}
-                  className="aspect-[5/2] w-full rounded-lg bg-gray-100 object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl"
+                  className="aspect-[5/2] w-full rounded-lg bg-primary object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl"
                 />
               </div>
             </div>
