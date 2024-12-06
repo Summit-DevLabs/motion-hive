@@ -22,7 +22,7 @@ import {
 const navigation = [
   { name: 'Home', href: '/', icon: HomeIcon, current: true },
   { name: 'About us', href: '/about', icon: UsersIcon, current: false },
-  { name: 'Holograms', href: '#', icon: FilmIcon, current: false },
+  // { name: 'Holograms', href: '#', icon: FilmIcon, current: false },
   { name: 'VFX', href: '#', icon: VideoCameraIcon, current: false },
   { name: 'Contact Us', href: '/contact', icon: EnvelopeIcon, current: false },
 ]
