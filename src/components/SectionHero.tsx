@@ -1,5 +1,6 @@
 
 import background from '../images/bg-honeycomb.webp'
+import heroPhoto from '../images/business-meeting.webp'
 
 
 
@@ -46,7 +47,11 @@ export default function SectionHero() {
                   </p>
                 </div>
               </div>
-            </div>
+              <img
+                src={heroPhoto.src}
+                className="mx-auto rounded-xl w-4/5 opacity-90 mt-8"
+              />            
+              </div>
           </div>
         </div>
       </div>
