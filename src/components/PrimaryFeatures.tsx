@@ -52,10 +52,10 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-white text-3xl tracking-tight sm:text-4xl md:text-5xl">
-           Cool VFX Shit We've Built
+           Cool VFX Shit We have Built
           </h2>
           <p className="mt-6 text-lg tracking-tight text-white">
-            Well everything you need if you aren’t that picky about minor
+            Well everything you need if you are not that picky about minor
             details like tax compliance.
           </p>
         </div>
