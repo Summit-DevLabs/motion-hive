@@ -59,7 +59,7 @@ export default function SidebarNav() {
               </div>
             </TransitionChild>
             {/* Sidebar component, swap this element with another sidebar if you like */}
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#242423] px-6 pb-4 ring-1 ring-white/10">
+            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-primary px-6 pb-4 ring-1 ring-white/10">
               <div className="flex h-16 shrink-0 items-center">
                 {/* <Image
                   alt="Your Company"
@@ -97,12 +97,12 @@ export default function SidebarNav() {
       </Dialog>
 
       <div className="bg-[#242423]">
-        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-gray-200 bg-[#242423]">
+        <div className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between border-gray-200 bg-primary">
           <div className="flex-1"></div> {/* This div takes up the remaining space */}
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className="p-2.5 text-white "
+            className="p-2.5 text-white bg-primary "
           >
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />

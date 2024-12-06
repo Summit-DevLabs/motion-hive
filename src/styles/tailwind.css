@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.metallic-red {
+  font-size: 3em;
+  font-weight: bold;
+  background: linear-gradient(45deg, #ff0000, #ff5c5c, #b20000, #ff5c5c, #ff0000);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.metallic-blue {
+  font-size: 3em;
+  font-weight: bold;
+  background: linear-gradient(45deg, #0000ff, #5c5cff, #0000b2, #5c5cff, #0000ff);
+  background-size: 300%; /* Adjust to make the gradient span a larger area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: move-gradient 3s linear infinite; /* Keyframe animation */
+}
+
+@keyframes move-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.metallic-green {
+  font-size: 3em;
+  font-weight: bold;
+  background: linear-gradient(45deg, #00ff00, #5cff5c, #00b200, #5cff5c, #00ff00);
+  background-size: 300%; /* Adjust to make the gradient span a larger area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: move-gradient-green 3s linear infinite; /* Keyframe animation */
+}
+
+@keyframes move-gradient-green {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
