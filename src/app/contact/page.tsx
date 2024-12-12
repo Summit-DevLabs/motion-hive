@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { EnvelopeIcon, PhoneIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline'
 import ConfirmationModal from '@/components/ConfirmationModal'
+import { FadeIn, FadeInStagger } from '@/components/FadeIn'
 
 export default function Contact() {
   const [firstName, setFirstName] = useState('')
@@ -38,29 +39,39 @@ export default function Contact() {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
-      {/* Left half */}
       <div className="flex w-full md:w-1/2 bg-[#d1cec9] p-8 items-center justify-start">
         <div className="max-w-md text-left">
-          <h1 className="mb-4 text-4xl font-bold text-black">Get in touch</h1>
-          <p className="mb-4 text-lg text-black">
-            Why should you reach out to us? Because we can make awesome stuff for you! We would be happy to hear about your ideas and get back to you shortly.
-          </p>
-          <p className="mb-4 text-lg text-black flex items-center">
-            <BuildingOfficeIcon className="h-6 w-6 mr-2" />
-            545 Example St Chicago, IL 17701
-          </p>
-          <p className="mb-4 text-lg text-black flex items-center">
-            <PhoneIcon className="h-6 w-6 mr-2" />
-            +1(800)555-6666
-          </p>
-          <p className="mb-4 text-lg text-black flex items-center">
-            <EnvelopeIcon className="h-6 w-6 mr-2" />
-            hello@example.com
-          </p>
+          <FadeInStagger>
+            <FadeIn>
+              <h1 className="mb-4 text-4xl font-bold text-black">Get in touch</h1>
+            </FadeIn>
+            <FadeIn>
+              <p className="mb-4 text-lg text-black">
+                Why should you reach out to us? Because we can make awesome stuff for you! We would be happy to hear about your ideas and get back to you shortly.
+              </p>
+            </FadeIn>
+            <FadeIn>
+              <p className="mb-4 text-lg text-black flex items-center">
+                <BuildingOfficeIcon className="h-6 w-6 mr-2" />
+                545 Example St Chicago, IL 17701
+              </p>
+            </FadeIn>
+            <FadeIn>
+              <p className="mb-4 text-lg text-black flex items-center">
+                <PhoneIcon className="h-6 w-6 mr-2" />
+                +1(800)555-6666
+              </p>
+            </FadeIn>
+            <FadeIn>
+              <p className="mb-4 text-lg text-black flex items-center">
+                <EnvelopeIcon className="h-6 w-6 mr-2" />
+                hello@example.com
+              </p>
+            </FadeIn>
+          </FadeInStagger>
         </div>
       </div>
 
-      {/* Right half */}
       <div className="flex w-full md:w-1/2 bg-white p-8 items-center justify-center">
         <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
           <div className="flex flex-col md:flex-row md:space-x-4">
