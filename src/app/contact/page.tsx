@@ -1,78 +1,70 @@
-
-
-
-"use client";
-import React, { useState } from 'react';
+'use client'
+import { useState } from 'react'
 import { EnvelopeIcon, PhoneIcon, BuildingOfficeIcon } from '@heroicons/react/24/outline'
-import { FadeIn } from '@/components/FadeIn'
-import ConfirmationModal from '@/components/ConfirmationModal';
+import ConfirmationModal from '@/components/ConfirmationModal'
 
-
-export default function ContactForm() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [message, setMessage] = useState('');
-  const [errors, setErrors] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '' });
-  const [isModalOpen, setIsModalOpen] = useState(false);
+export default function Contact() {
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+  const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState({ firstName: '', lastName: '', email: '', phone: '', message: '' })
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const validate = () => {
-    let tempErrors = { firstName: '', lastName: '', email: '', phone: '', message: '' };
-    if (!firstName) tempErrors.firstName = 'First name is required';
-    if (!lastName) tempErrors.lastName = 'Last name is required';
-    if (!email) tempErrors.email = 'Email is required';
-    else if (!/\S+@\S+\.\S+/.test(email)) tempErrors.email = 'Email is invalid';
-    setErrors(tempErrors);
-    return Object.values(tempErrors).every(x => x === '');
-  };
+    let tempErrors = { firstName: '', lastName: '', email: '', phone: '', message: '' }
+    if (!firstName) tempErrors.firstName = 'First name is required'
+    if (!lastName) tempErrors.lastName = 'Last name is required'
+    if (!email) tempErrors.email = 'Email is required'
+    else if (!/\S+@\S+\.\S+/.test(email)) tempErrors.email = 'Email is invalid'
+    setErrors(tempErrors)
+    return Object.values(tempErrors).every(x => x === '')
+  }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const formData = { firstName, lastName, email, phone, message };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
 
     if (validate()) {
+      const formData = { firstName, lastName, email, phone, message }
       try {
-        // await sendToDiscord(formData);
-        setIsModalOpen(true);
+        // await sendToDiscord(formData)
+        setIsModalOpen(true)
       } catch (error) {
-        alert('Failed to send message.');
+        alert('Failed to send information.')
       }
     }
-  };
-
-
-
+  }
 
   return (
-    <>
-      <div className="flex min-h-screen">
-        <div className="flex w-1/2 bg-[#d1cec9] p-8 items-center justify-start">
-          <div className="max-w-md text-left">
-            <h1 className="mb-4 text-4xl font-bold text-black">Get in touch</h1>
-            <p className="mb-4 text-lg text-black">
-              Why should you reach out to us? Because we can make awesome stuff for you! We would be happy to hear about your ideas and get back to you shortly.
-            </p>
-            <p className="mb-4 text-lg text-black flex items-center">
-              <BuildingOfficeIcon className="h-6 w-6 mr-2" />
-              545 Example St Chicago, IL 17701
-            </p>
-            <p className="mb-4 text-lg text-black flex items-center">
-              <PhoneIcon className="h-6 w-6 mr-2" />
-              +1(800)555-6666
-            </p>
-            <p className="mb-4 text-lg text-black flex items-center">
-              <EnvelopeIcon className="h-6 w-6 mr-2" />
-              hello@example.com
-            </p>
-          </div>
+    <div className="flex flex-col md:flex-row min-h-screen">
+      {/* Left half */}
+      <div className="flex w-full md:w-1/2 bg-[#d1cec9] p-8 items-center justify-start">
+        <div className="max-w-md text-left">
+          <h1 className="mb-4 text-4xl font-bold text-black">Get in touch</h1>
+          <p className="mb-4 text-lg text-black">
+            Why should you reach out to us? Because we can make awesome stuff for you! We would be happy to hear about your ideas and get back to you shortly.
+          </p>
+          <p className="mb-4 text-lg text-black flex items-center">
+            <BuildingOfficeIcon className="h-6 w-6 mr-2" />
+            545 Example St Chicago, IL 17701
+          </p>
+          <p className="mb-4 text-lg text-black flex items-center">
+            <PhoneIcon className="h-6 w-6 mr-2" />
+            +1(800)555-6666
+          </p>
+          <p className="mb-4 text-lg text-black flex items-center">
+            <EnvelopeIcon className="h-6 w-6 mr-2" />
+            hello@example.com
+          </p>
         </div>
+      </div>
 
-        <div className="flex w-1/2 bg-white p-8 items-center justify-center">
-        <form onSubmit={handleSubmit} className="w-3/4 space-y-6">
-          <div className="flex space-x-4">
-            <div className="w-1/2">
+      {/* Right half */}
+      <div className="flex w-full md:w-1/2 bg-white p-8 items-center justify-center">
+        <form onSubmit={handleSubmit} className="w-full max-w-lg space-y-6">
+          <div className="flex flex-col md:flex-row md:space-x-4">
+            <div className="w-full md:w-1/2">
               <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
                 First Name
               </label>
@@ -88,7 +80,7 @@ export default function ContactForm() {
               />
               {errors.firstName && <p className="text-red-500">{errors.firstName}</p>}
             </div>
-            <div className="w-1/2">
+            <div className="w-full md:w-1/2 mt-4 md:mt-0">
               <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
                 Last Name
               </label>
@@ -160,8 +152,6 @@ export default function ContactForm() {
         </form>
         {isModalOpen && <ConfirmationModal onClose={() => setIsModalOpen(false)} />}
       </div>
-      </div>
-    </>
+    </div>
   )
 }
-
