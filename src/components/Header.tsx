@@ -9,7 +9,6 @@ import {
 } from '@headlessui/react'
 import clsx from 'clsx'
 import Image from 'next/image'
-import logo from '@/images/logos/laravel.svg'
 
 
 import SidebarNav from './SidebarNav'
@@ -86,10 +85,11 @@ export function Header() {
   return (
     <header className="bg-primary">
       <div className="flex items-center justify-between h-16 sm:px-6 ">
+      <Link href="/">
         <div className="flex items-center">
-          <Image src={logo} alt="Logo" width={32} height={32} />
           <h2 className="ml-3 text-white text-3xl">Motion Hive</h2>
         </div>
+       </Link> 
         <SidebarNav />
       </div>
     </header>

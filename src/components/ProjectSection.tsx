@@ -4,6 +4,7 @@ function classNames(...classes: any) {
 }
 
 export default function ProjectSections({ projects } : any) {
+  console.log(projects);
   return (
     <div className="bg-primary">
       <div className="mx-auto max-w-2xl px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:px-8">
@@ -21,9 +22,14 @@ export default function ProjectSections({ projects } : any) {
                   "mt-6 lg:col-span-5 lg:row-start-1 lg:mt-0 xl:col-span-4",
                 )}
               >
-                <h3 className="text-lg font-medium text-white">
+                {/* <h3 className="text-lg font-medium text-white">
                   {project.name}
-                </h3>
+                </h3> */}
+                <img
+                  alt={project.imageAlt}
+                  src={project.logoImageSrc}
+                  className="aspect-[5/2] w-full rounded-lg bg-primary object-fit transition-transform duration-300 ease-in-out transform"
+                />
                 <p className="mt-2 text-sm text-white">
                   {project.description}
                 </p>
@@ -38,7 +44,7 @@ export default function ProjectSections({ projects } : any) {
               >
                 <img
                   alt={project.imageAlt}
-                  src={project.imageSrc}
+                  src={project.mainImageSrc}
                   className="aspect-[5/2] w-full rounded-lg bg-primary object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl"
                 />
               </div>

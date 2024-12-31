@@ -1,9 +1,9 @@
 export const projects = [
   {
-    name: 'Project 1',
+    name: 'Hoover',
     description:
       'Anim cillum labore id eiusmod proident ullamco ut laborum velit commodo elit consequat. Sunt minim adipisicing amet duis labore. Reprehenderit mollit esse qui. Excepteur proident exercitation laborum aliqua occaecat.',
-    imageSrc: 'https://tailwindui.com/plus/img/ecommerce-images/product-feature-07-detail-01.jpg',
+    imageSrc: './images/clouds.png',
     imageAlt: 'White canvas laptop sleeve with gray felt interior, silver zipper, and tan leather zipper pull.',
   },
   {
