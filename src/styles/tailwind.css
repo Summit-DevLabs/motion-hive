@@ -50,3 +50,12 @@
     background-position: 100% 50%;
   }
 }
+
+.rose-gold {
+  background: linear-gradient(135deg, 
+    #b76e79 0%, 
+    #ffcccb 25%, 
+    #d6a5a6 50%, 
+    #b76e79 75%, 
+    #ffcccb 100%);
+}

@@ -8,11 +8,11 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: 'Motion Hive',
+    default: 'Motion Hive: Basass VFX and Holograms',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Motion Hive is a VFX and Hologram company based in the UK. We specialise in creating stunning visual effects for film, television, and live events.',
 }
 
 const inter = Inter({
