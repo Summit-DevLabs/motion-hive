@@ -19,8 +19,8 @@ export default function Banner(props: BannerProps) {
   return (
     <div className={`
         bg-${props.backgroundColor} 
-        ${props.py ? `py-${props.py}` : 'py-24'}
-        px-6 py-24 sm:py-32 lg:px-8`
+        ${props.py ? `py-${props.py}` : 'py-16'}
+        px-6 pt-24 pb-0 sm:pt-24 sm:pb-0 lg:px-8`
     }>
       <div className="mx-auto max-w-screen-xl text-center">
         <h2 className={`

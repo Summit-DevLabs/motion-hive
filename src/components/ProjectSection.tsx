@@ -1,9 +1,10 @@
+import honeycomb from "@/images/honeycomb-outline.svg";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ProjectSections({ projects } : any) {
+export default function ProjectSections({ projects }: any) {
   console.log(projects);
   return (
     <div className="bg-primary">
@@ -30,9 +31,7 @@ export default function ProjectSections({ projects } : any) {
                   src={project.logoImageSrc}
                   className="aspect-[5/2] w-full rounded-lg bg-primary object-fit transition-transform duration-300 ease-in-out transform"
                 />
-                <p className="mt-2 text-sm text-white">
-                  {project.description}
-                </p>
+                <p className="mt-2 text-sm text-white">{project.description}</p>
               </div>
               <div
                 className={classNames(
@@ -48,6 +47,15 @@ export default function ProjectSections({ projects } : any) {
                   className="aspect-[5/2] w-full rounded-lg bg-primary object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl"
                 />
               </div>
+              {i > 0 && (
+                <div className="flex justify-center mb-4">
+                  <img
+                    className="lg:hidden w-16 mb-6 opacity-25"
+                    src={honeycomb.src}
+                    alt=""
+                  />
+                </div>
+              )}
             </div>
           ))}
         </div>

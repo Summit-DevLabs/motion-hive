@@ -31,6 +31,19 @@
   }
 }
 
+.metallic-gold {
+  font-weight: bold;
+  background: linear-gradient(135deg, 
+  #ffd700 0%, 
+  #ffe373 25%, 
+  #ffcc00 50%, 
+  #f7b200 75%, 
+  #ffd700 100%);  background-size: 300%; /* Adjust to make the gradient span a larger area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: move-gradient 4s linear infinite; /* Keyframe animation */
+}
 .metallic-green {
   font-size: 3em;
   font-weight: bold;
@@ -50,12 +63,17 @@
     background-position: 100% 50%;
   }
 }
-
-.rose-gold {
+.metallic-rose-gold {
+  font-weight: bold;
   background: linear-gradient(135deg, 
     #b76e79 0%, 
     #ffcccb 25%, 
     #d6a5a6 50%, 
     #b76e79 75%, 
     #ffcccb 100%);
+  background-size: 300%; /* Adjust to make the gradient span a larger area */
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: move-gradient 3s linear infinite; /* Keyframe animation */
 }

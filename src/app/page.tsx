@@ -77,11 +77,6 @@ export default function Home() {
         descriptionTextColor="white"
       />
       <ProjectSections projects={projects} />
-      {/* <SecondaryFeatures /> */}
-      <CallToAction />
-      <Testimonials />
-      <Pricing />
-      <Faqs />
     </>
   )
 } 
