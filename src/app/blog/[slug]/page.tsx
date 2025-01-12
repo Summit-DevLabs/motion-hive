@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { client } from '../../../../tina/__generated__/client'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
+import type { Metadata } from 'next'
 
 const components = {
 	h2: (props: any) => (
@@ -43,7 +44,7 @@ const components = {
 			<span>{props.children}</span>
 		</li>
 	),
-	hr: () => null,
+	hr: (props: any) => <hr {...props} className="hidden" />,
 	img: (props: any) => (
 		<Image
 			{...props}
@@ -56,13 +57,33 @@ const components = {
 	)
 };
 
-export default async function BlogPost({
-	params,
-}: {
+type Props = {
 	params: { slug: string }
-}) {
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+	const { slug } = params;
 	try {
-		const { slug } = params;
+		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
+		const post = response.data.post
+		
+		return {
+			title: post?.title,
+			description: post?.description,
+		}
+	} catch (error) {
+		return {
+			title: 'Blog Post',
+			description: 'Blog post not found',
+		}
+	}
+}
+
+// This is a Server Component
+export default async function BlogPost({ params }: Props) {
+	const { slug } = params;
+	
+	try {
 		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
 		const post = response.data.post
 
