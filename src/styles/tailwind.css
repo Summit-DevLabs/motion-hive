@@ -33,7 +33,7 @@
 
 .metallic-gold {
   font-weight: bold;
-  background: linear-gradient(180deg, #F9BC7C, #643213);
+  background: linear-gradient(180deg, #F9BC7C, #E8A76F, #B47B4B, #8B5E35, #643213);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
