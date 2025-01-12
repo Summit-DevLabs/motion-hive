@@ -56,13 +56,12 @@ const components = {
 	)
 };
 
-interface BlogPostParams {
-	params: {
-		slug: string;
-	};
+type Props = {
+	params: { slug: string }
+	searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function BlogPost({ params }: BlogPostParams) {
+export default async function BlogPost({ params, searchParams }: Props) {
 	try {
 		const { slug } = params;
 		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
