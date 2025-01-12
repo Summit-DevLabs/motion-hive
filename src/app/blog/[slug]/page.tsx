@@ -56,50 +56,51 @@ const components = {
 	)
 };
 
-type Props = {
-	params: { slug: string }
-	searchParams: { [key: string]: string | string[] | undefined }
+interface PageProps {
+	params: { slug: string };
 }
 
-export default async function BlogPost({ params, searchParams }: Props) {
-	try {
-		const { slug } = params;
-		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
-		const post = response.data.post
+export default function BlogPost({ params }: PageProps) {
+	return (async () => {
+		try {
+			const { slug } = params;
+			const response = await client.queries.post({ relativePath: `${slug}.mdx` })
+			const post = response.data.post
 
-		if (!post) {
-			return <div>Post not found</div>
-		}
+			if (!post) {
+				return <div>Post not found</div>
+			}
 
-		return (
-			<div className="bg-primary px-6 py-32 lg:px-8">
-				<div className="mx-auto max-w-3xl text-base/7 text-white">
-					<p className="text-base/7 font-semibold text-indigo-600">Blog Post</p>
-					<h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight light-gold sm:text-5xl">
-						{post.title}
-					</h1>
-					<div className="mt-6 text-xl/8">
-						{post.description}
-					</div>
-					{post.heroImage && (
-						<figure className="mt-16">
-							<Image
-								src={post.heroImage}
-								alt={post.title}
-								width={1200}
-								height={600}
-								className="aspect-video rounded-xl bg-gray-50 object-cover"
-							/>
-						</figure>
-					)}
-					<div className="mt-10 max-w-2xl">
-						<TinaMarkdown content={post.body} components={components} />
+			return (
+				<div className="bg-primary px-6 py-32 lg:px-8">
+					<div className="mx-auto max-w-3xl text-base/7 text-white">
+						<p className="text-base/7 font-semibold text-indigo-600">Blog Post</p>
+						<h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight light-gold sm:text-5xl">
+							{post.title}
+						</h1>
+						<div className="mt-6 text-xl/8">
+							{post.description}
+						</div>
+						{post.heroImage && (
+							<figure className="mt-16">
+								<Image
+									src={post.heroImage}
+									alt={post.title}
+									width={1200}
+									height={600}
+									className="aspect-video rounded-xl bg-gray-50 object-cover"
+								/>
+							</figure>
+						)}
+						<div className="mt-10 max-w-2xl">
+							<TinaMarkdown content={post.body} components={components} />
+						</div>
 					</div>
 				</div>
-			</div>
-		)
-	} catch (error) {
-		console.error('Error fetching post:', error)
-		return <div>Error loading post</div>
-	}
+			)
+		} catch (error) {
+			console.error('Error fetching post:', error)
+			return <div>Error loading post</div>
+		}
+	})()
 }
