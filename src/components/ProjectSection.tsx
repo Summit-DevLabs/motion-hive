@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import honeycomb from "@/images/honeycomb-outline.svg";
 
 function classNames(...classes: any) {
@@ -26,9 +27,11 @@ export default function ProjectSections({ projects }: any) {
                 {/* <h3 className="text-lg font-medium text-white">
                   {project.name}
                 </h3> */}
-                <img
+                <Image
                   alt={project.imageAlt}
                   src={project.logoImageSrc}
+                  width={500}
+                  height={200}
                   className="aspect-[5/2] w-full rounded-lg bg-primary object-fit transition-transform duration-300 ease-in-out transform"
                 />
                 <p className="mt-2 text-sm text-white">{project.description}</p>
@@ -41,17 +44,21 @@ export default function ProjectSections({ projects }: any) {
                   "flex-auto lg:col-span-7 lg:row-start-1 xl:col-span-8",
                 )}
               >
-                <img
+                <Image
                   alt={project.imageAlt}
                   src={project.mainImageSrc}
+                  width={1000}
+                  height={400}
                   className="aspect-[5/2] w-full rounded-lg bg-primary object-cover transition-transform duration-300 ease-in-out transform hover:scale-110 hover:drop-shadow-2xl"
                 />
               </div>
               {i > 0 && (
                 <div className="flex justify-center mb-4">
-                  <img
+                  <Image
                     className="lg:hidden w-16 mb-6 opacity-25"
                     src={honeycomb.src}
+                    width={64}
+                    height={64}
                     alt=""
                   />
                 </div>
