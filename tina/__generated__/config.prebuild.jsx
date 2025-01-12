@@ -1,16 +1,19 @@
 // tina/config.ts
 import { defineConfig } from "tinacms";
+var branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 var config_default = defineConfig({
-  branch: "main",
+  branch,
   clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
+  // Get this from tina.io
   token: process.env.TINA_TOKEN || "",
+  // Get this from tina.io
   build: {
     outputFolder: "admin",
     publicFolder: "public"
   },
   media: {
     tina: {
-      mediaRoot: "public/images",
+      mediaRoot: "uploads",
       publicFolder: "public"
     }
   },
@@ -18,7 +21,7 @@ var config_default = defineConfig({
     collections: [
       {
         name: "post",
-        label: "Blog Posts",
+        label: "Posts",
         path: "content/posts",
         format: "mdx",
         fields: [
@@ -30,15 +33,15 @@ var config_default = defineConfig({
             required: true
           },
           {
-            type: "string",
-            name: "description",
-            label: "Description",
-            required: true
-          },
-          {
             type: "datetime",
             name: "date",
             label: "Date",
+            required: true
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
             required: true
           },
           {
@@ -50,27 +53,7 @@ var config_default = defineConfig({
             type: "rich-text",
             name: "body",
             label: "Body",
-            isBody: true,
-            templates: [
-              {
-                name: "CallToAction",
-                label: "Call to Action",
-                fields: [
-                  {
-                    name: "text",
-                    label: "Text",
-                    type: "string",
-                    required: true
-                  },
-                  {
-                    name: "url",
-                    label: "URL",
-                    type: "string",
-                    required: true
-                  }
-                ]
-              }
-            ]
+            isBody: true
           }
         ]
       }

@@ -87,7 +87,7 @@ export function Header() {
       <div className="flex items-center justify-between h-16 sm:px-6 ">
       <Link href="/">
         <div className="flex items-center">
-          <h2 className="ml-3 mt-4 metallic-gold text-3xl opacity-75">Motion Hive</h2>
+          <h2 className="ml-3 mt-4 light-gold text-3xl opacity-75">Motion Hive</h2>
         </div>
        </Link> 
         <SidebarNav />

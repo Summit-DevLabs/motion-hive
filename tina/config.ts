@@ -1,27 +1,27 @@
 import { defineConfig } from "tinacms";
 
-export default defineConfig({
-  branch: "main",
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
+// Your hosting provider likely exposes this as an environment variable
+const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
+export default defineConfig({
+  branch,
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "", // Get this from tina.io
+  token: process.env.TINA_TOKEN || "", // Get this from tina.io
   build: {
     outputFolder: "admin",
     publicFolder: "public",
   },
-
   media: {
     tina: {
-      mediaRoot: "public/images",
+      mediaRoot: "uploads",
       publicFolder: "public",
     },
   },
-
   schema: {
     collections: [
       {
         name: "post",
-        label: "Blog Posts",
+        label: "Posts",
         path: "content/posts",
         format: "mdx",
         fields: [
@@ -33,15 +33,15 @@ export default defineConfig({
             required: true,
           },
           {
-            type: "string",
-            name: "description",
-            label: "Description",
-            required: true,
-          },
-          {
             type: "datetime",
             name: "date",
             label: "Date",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "description",
+            label: "Description",
             required: true,
           },
           {
@@ -54,26 +54,6 @@ export default defineConfig({
             name: "body",
             label: "Body",
             isBody: true,
-            templates: [
-              {
-                name: "CallToAction",
-                label: "Call to Action",
-                fields: [
-                  {
-                    name: "text",
-                    label: "Text",
-                    type: "string",
-                    required: true,
-                  },
-                  {
-                    name: "url",
-                    label: "URL",
-                    type: "string",
-                    required: true,
-                  },
-                ],
-              },
-            ],
           },
         ],
       },

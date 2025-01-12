@@ -37,7 +37,7 @@ export default async function BlogIndex() {
                 </div>
                 <div className="group relative">
                   <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                    <Link href={`/blog/${post._sys.filename}`}>
+                    <Link href={`/blog/${post._sys.filename.replace('.mdx', '')}`}>
                       <span className="absolute inset-0" />
                       {post.title}
                     </Link>
