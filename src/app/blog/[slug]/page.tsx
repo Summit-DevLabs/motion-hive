@@ -64,7 +64,7 @@ interface BlogPostParams {
 
 export default async function BlogPost({ params }: BlogPostParams) {
 	try {
-		const { slug } = await params;
+		const { slug } = params;
 		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
 		const post = response.data.post
 
