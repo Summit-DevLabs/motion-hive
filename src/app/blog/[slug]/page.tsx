@@ -4,6 +4,9 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
 import type { Metadata } from 'next'
 
+// Add dynamic flag to prevent static generation
+export const dynamic = 'force-dynamic'
+
 const components = {
 	h2: (props: any) => (
 		<h2 className="mt-16 text-pretty text-3xl font-semibold tracking-tight text-light-gold" {...props} />
@@ -62,33 +65,38 @@ type Props = {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-	const { slug } = params;
 	try {
+		const { slug } = params;
 		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
 		const post = response.data.post
 		
 		return {
-			title: post?.title,
-			description: post?.description,
+			title: post?.title || 'Blog Post',
+			description: post?.description || 'Loading blog post...',
 		}
 	} catch (error) {
 		return {
 			title: 'Blog Post',
-			description: 'Blog post not found',
+			description: 'Loading blog post...',
 		}
 	}
 }
 
 // This is a Server Component
 export default async function BlogPost({ params }: Props) {
-	const { slug } = params;
-	
 	try {
+		const { slug } = params;
 		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
 		const post = response.data.post
 
 		if (!post) {
-			return <div>Post not found</div>
+			return (
+				<div className="bg-primary px-6 py-32 lg:px-8">
+					<div className="mx-auto max-w-3xl text-base/7 text-white">
+						<p>Post not found</p>
+					</div>
+				</div>
+			)
 		}
 
 		return (
@@ -119,7 +127,12 @@ export default async function BlogPost({ params }: Props) {
 			</div>
 		)
 	} catch (error) {
-		console.error('Error fetching post:', error)
-		return <div>Error loading post</div>
+		return (
+			<div className="bg-primary px-6 py-32 lg:px-8">
+				<div className="mx-auto max-w-3xl text-base/7 text-white">
+					<p>Loading blog post...</p>
+				</div>
+			</div>
+		)
 	}
 }
