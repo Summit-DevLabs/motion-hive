@@ -36,7 +36,7 @@ export default {
         primary: '#333533', // background dark grey
         secondary: '#ede8df', // background light cream
         tertiary: '#242423', // text dark grey
-        'light-gold': 'FFD700',
+        'light-gold': '#F9B378',
       },
       backgroundColor: {
         primary: '#000000', // background dark grey

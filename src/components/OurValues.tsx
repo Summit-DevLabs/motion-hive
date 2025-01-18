@@ -2,13 +2,13 @@ import { CogIcon } from "@/images/icons/CogIcon"
 
 export default function OurValues() {
   return (
-    <div className="bg-secondary pointer-events-none py-24 sm:py-32">
+    <div className="bg-primary pointer-events-none py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-tertiary sm:text-5xl">
+          <h2 className="text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
             All-in-one platform
           </h2>
-          <p className="mt-6 text-lg/8 text-gray-600">
+          <p className="mt-6 text-lg/8 text-white">
             Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
             accusamus quisquam.
           </p>
@@ -20,8 +20,8 @@ export default function OurValues() {
                 <div className="w-24 p-2">
                   <feature.icon />
                 </div>
-                <dd className="mt-1 text-gray-600">
-                  <span className="font-semibold text-gray-900">{feature.name}</span> {feature.description}</dd>
+                <dd className="mt-1 text-white">
+                  <span className="font-semibold text-white">{feature.name}</span> {feature.description}</dd>
               </div>
             </div>
           ))}

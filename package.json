@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tina": "tinacms dev -c \"next dev\"",
+    "tina:build": "tinacms build && next build"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -17,15 +19,16 @@
     "@tinacms/auth": "^1.0.10",
     "@tinacms/cli": "^1.8.0",
     "@types/node": "^20.10.8",
+    "@types/papaparse": "^5.3.15",
     "@types/react": "18.2.48",
     "@types/react-dom": "18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
     "@vercel/blob": "^0.27.0",
     "autoprefixer": "^10.4.12",
     "clsx": "^2.1.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.0.4",
-    "@typescript-eslint/eslint-plugin": "^6.19.0",
-    "@typescript-eslint/parser": "^6.19.0",
     "eslint-plugin-react": "^7.33.2",
     "framer-motion": "^11.12.0",
     "next": "14.0.4",

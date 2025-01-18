@@ -16,7 +16,8 @@ import {
   XMarkIcon,
   FilmIcon,
   VideoCameraIcon,
-  EnvelopeIcon
+  EnvelopeIcon,
+  BookOpenIcon
 } from '@heroicons/react/24/outline'
 
 const navigation = [
@@ -24,6 +25,7 @@ const navigation = [
   { name: 'About us', href: '/about', icon: UsersIcon, current: false },
   { name: 'Holograms', href: '/holograms', icon: FilmIcon, current: false },
   { name: 'VFX', href: '/vfx', icon: VideoCameraIcon, current: false },
+  { name: 'Blog', href: '/blog', icon: BookOpenIcon, current: false },
   { name: 'Contact Us', href: '/contact', icon: EnvelopeIcon, current: false },
 ]
 const userNavigation = [
@@ -54,7 +56,7 @@ export default function SidebarNav() {
               <div className="absolute right-full top-0 flex w-16 justify-center pt-5 duration-300 ease-in-out data-[closed]:opacity-0">
                 <button type="button" onClick={() => setSidebarOpen(false)} className="-m-2.5 p-2.5">
                   <span className="sr-only">Close sidebar</span>
-                  <XMarkIcon aria-hidden="true" className="h-6 w-6 text-white" />
+                  <XMarkIcon aria-hidden="true" className="h-6 w-6 text-light-gold" />
                 </button>
               </div>
             </TransitionChild>
@@ -102,7 +104,7 @@ export default function SidebarNav() {
           <button
             type="button"
             onClick={() => setSidebarOpen(true)}
-            className="p-2.5 text-white bg-primary "
+            className="p-2.5 text-blue bg-primary "
           >
             <span className="sr-only">Open sidebar</span>
             <Bars3Icon className="h-6 w-6 text-white" aria-hidden="true" />
