@@ -6,13 +6,15 @@ import { caseStudies } from './data'
 export default function CaseStudiesPage() {
   return (
     <>
-      <Banner
-        title="CASE STUDIES"
-        description="Explore our portfolio of successful projects and client solutions"
-        backgroundColor="primary"
-        headerTextColor="white"
-        descriptionTextColor="white"
-      />
+      <div className="pb-12">
+        <Banner
+          title="CASE STUDIES"
+          description="Explore our portfolio of successful projects and client solutions"
+          backgroundColor="primary"
+          headerTextColor="white"
+          descriptionTextColor="white"
+        />
+      </div>
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
