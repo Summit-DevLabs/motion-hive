@@ -2,7 +2,7 @@ import Banner from '@/components/Banner'
 import { Hero } from '@/components/Hero'
 import ProjectSections from '@/components/ProjectSection'
 import { Video } from '@/components/Video'
-import { projects } from '@/data/projects'
+import { vfxProjects } from '@/data/projects'
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
         headerTextColor="white"
         descriptionTextColor="white"
       />
-      <ProjectSections projects={projects} />
+      <ProjectSections projects={vfxProjects} />
     </>
   )
 } 

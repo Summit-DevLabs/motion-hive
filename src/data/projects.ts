@@ -9,7 +9,7 @@ import weatherGuardTruck from '@/images/weather-guard-truck.png'
 import krispyKreme from '@/images/logos/krispy-kreme.svg'
 import krispyKremeBox from '@/images/krispy-kreme-box.png'
 
-export const projects = [
+export const vfxProjects = [
   {
     name: 'Hoover',
     description:
