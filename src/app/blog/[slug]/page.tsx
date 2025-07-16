@@ -103,7 +103,7 @@ export default async function BlogPost({ params }: Props) {
 			<div className="bg-primary px-6 py-32 lg:px-8">
 				<div className="mx-auto max-w-3xl text-base/7 text-white">
 					<p className="text-base/7 font-semibold text-indigo-600">Blog Post</p>
-					<h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight light-gold sm:text-5xl">
+					<h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-light-gold sm:text-5xl">
 						{post.title}
 					</h1>
 					<div className="mt-6 text-xl/8">

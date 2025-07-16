@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import clsx from 'clsx'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-features.jpg'
@@ -20,6 +22,7 @@ const features = [
     description:
       "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
     image: handheld,
+    galleryId: 'hoover',
   },
 ]
 
@@ -27,6 +30,7 @@ export function PrimaryFeatures() {
   let [tabOrientation, setTabOrientation] = useState<'horizontal' | 'vertical'>(
     'horizontal',
   )
+  const router = useRouter()
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -77,6 +81,10 @@ export function PrimaryFeatures() {
                           ? 'bg-primary lg:bg-white/10 lg:ring-1 lg:ring-inset lg:ring-white/10'
                           : 'hover:bg-white/10 lg:hover:bg-white/5',
                       )}
+                      onClick={() => {
+                        router.push(`/gallery/${feature.galleryId}`);
+                      }}
+                      style={{ cursor: 'pointer' }}
                     >
                       <h3>
                         <Tab
@@ -114,14 +122,24 @@ export function PrimaryFeatures() {
                         {feature.description}
                       </p>
                     </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-transparent shadow-2xl shadow-red-900 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
-                      <Image
-                        className="w-full"
-                        src={feature.image}
-                        alt=""
-                        priority
-                        sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
-                      />
+                    <div 
+                      className="block group cursor-pointer" 
+                      onClick={() => router.push(`/gallery/${feature.galleryId}`)}
+                    >
+                      <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-transparent shadow-2xl shadow-red-900 sm:w-auto lg:mt-0 lg:w-[67.8125rem] transition duration-300 ease-in-out transform group-hover:scale-[1.02]">
+                        <Image
+                          className="w-full"
+                          src={feature.image}
+                          alt=""
+                          priority
+                          sizes="(min-width: 1024px) 67.8125rem, (min-width: 640px) 100vw, 45rem"
+                        />
+                      </div>
+                      <div className="mt-8 flex justify-center">
+                        <span className="rounded-md bg-white px-6 py-2.5 text-sm font-semibold text-primary shadow-sm group-hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                          View Gallery
+                        </span>
+                      </div>
                     </div>
                   </TabPanel>
                 ))}

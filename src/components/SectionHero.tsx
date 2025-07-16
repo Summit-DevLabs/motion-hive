@@ -18,9 +18,7 @@ export default function SectionHero() {
               <div className="flex flex-row w-full pt-16">
                 <div className="px-2">
                   <p className="mt-6 text-lg/8 text-white">
-                    Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-                    pulvinar et feugiat blandit at. In mi viverra elit nunc.
-                    Quis tellus eget adipiscing convallis sit sit eget aliquet quis.
+                  With backgrounds in 3D product rendering, animation, illustration, and photo retouching for major brands, they have worked across film, TV, web, architectural visualization, print, retail packaging, and apparel. Their expertise in automated workflows and AI integration enables them to deliver greater value to their clients.
                   </p>
                   <p className="mt-6 text-lg/8 text-white">
                     Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum

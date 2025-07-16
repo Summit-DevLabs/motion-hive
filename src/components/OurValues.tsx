@@ -9,8 +9,7 @@ export default function OurValues() {
             All-in-one platform
           </h2>
           <p className="mt-6 text-lg/8 text-white">
-            Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in
-            accusamus quisquam.
+          With backgrounds in 3D product rendering, animation, illustration, and photo retouching for major brands, they have worked across film, TV, web, architectural visualization, print, retail packaging, and apparel. Their expertise in automated workflows and AI integration enables them to deliver greater value to their clients.
           </p>
         </div>
         <dl className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base/7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">

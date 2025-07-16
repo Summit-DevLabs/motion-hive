@@ -18,7 +18,8 @@ import {
   VideoCameraIcon,
   EnvelopeIcon,
   ClipboardDocumentListIcon,
-  QuestionMarkCircleIcon
+  QuestionMarkCircleIcon,
+  PhotoIcon
 } from '@heroicons/react/24/outline'
 
 const navigation = [
@@ -27,6 +28,7 @@ const navigation = [
   { name: 'Holograms', href: '/holograms', icon: FilmIcon, current: false },
   { name: 'VFX', href: '/vfx', icon: VideoCameraIcon, current: false },
   { name: 'Case Studies', href: '/case-studies', icon: ClipboardDocumentListIcon, current: false },
+  { name: 'Test', href: '/test', icon: PhotoIcon, current: false },
   { name: 'FAQ', href: '/faq', icon: QuestionMarkCircleIcon, current: false },
   { name: 'Contact Us', href: '/contact', icon: EnvelopeIcon, current: false },
 ]
