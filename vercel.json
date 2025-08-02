@@ -1,6 +1,6 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
+  "buildCommand": "npm run admin:build",
+  "outputDirectory": "public/admin",
   "installCommand": "npm install",
-  "framework": "nextjs"
+  "framework": "other"
 } 
