@@ -5,9 +5,9 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "develop
 
 export default defineConfig({
   branch,
-  // Use local mode for production builds
-  clientId: process.env.NODE_ENV === "production" ? "local" : "",
-  token: process.env.NODE_ENV === "production" ? "local" : "",
+  // Use explicit local mode values
+  clientId: "local",
+  token: "local",
   build: {
     outputFolder: "public/admin",
     publicFolder: "public",
