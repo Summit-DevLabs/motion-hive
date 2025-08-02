@@ -9,7 +9,7 @@
     "lint": "next lint",
     "tina": "tinacms dev -c \"next dev\"",
     "tina:build": "tinacms build && next build",
-    "admin:build": "tinacms build"
+    "admin:build": "tinacms build --local"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
@@ -19,6 +19,7 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tinacms/auth": "^1.1.0",
     "@tinacms/cli": "^1.10.1",
+    "@tinacms/datalayer": "^1.4.0",
     "@types/node": "^20.10.8",
     "@types/papaparse": "^5.3.15",
     "@types/react": "18.2.48",

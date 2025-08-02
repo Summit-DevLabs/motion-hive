@@ -3,9 +3,9 @@ import { defineConfig } from "tinacms";
 var branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "develop";
 var config_default = defineConfig({
   branch,
-  // Use your actual Tina Cloud project credentials
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "dummy-id",
-  token: process.env.TINA_TOKEN || "dummy-token",
+  // Self-hosted configuration - no cloud dependencies
+  clientId: "self-hosted",
+  token: "self-hosted",
   build: {
     outputFolder: "public/admin",
     publicFolder: "public"
