@@ -16,10 +16,6 @@ const nextConfig = {
       },
     ]
   },
-  // Ensure proper handling of static and dynamic routes
-  output: 'standalone',
-  poweredByHeader: false,
-  reactStrictMode: true,
 }
 
 module.exports = nextConfig
