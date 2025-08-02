@@ -5,9 +5,9 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "develop
 
 export default defineConfig({
   branch,
-  // Local development configuration
-  clientId: "",
-  token: "",
+  // Use real Tina Cloud credentials for build process
+  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "dummy-id",
+  token: process.env.TINA_TOKEN || "dummy-token",
   build: {
     outputFolder: "public/admin",
     publicFolder: "public",
