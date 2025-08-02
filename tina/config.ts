@@ -5,9 +5,9 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "develop
 
 export default defineConfig({
   branch,
-  // Self-hosted configuration - no cloud dependencies
-  clientId: "self-hosted",
-  token: "self-hosted",
+  // Local development configuration
+  clientId: "",
+  token: "",
   build: {
     outputFolder: "public/admin",
     publicFolder: "public",
