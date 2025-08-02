@@ -1,6 +1,5 @@
 {
   "buildCommand": "npm run admin:build",
   "outputDirectory": "public/admin",
-  "installCommand": "npm install",
-  "framework": "other"
+  "installCommand": "npm install"
 } 
