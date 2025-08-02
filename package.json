@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "tina": "tinacms dev -c \"next dev\"",
-    "tina:build": "tinacms build && next build"
+    "tina:build": "tinacms build && next build",
+    "admin:build": "tinacms build"
   },
   "browserslist": "defaults, not ie <= 11",
   "dependencies": {
