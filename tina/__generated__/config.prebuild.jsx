@@ -3,10 +3,11 @@ import { defineConfig } from "tinacms";
 var branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "develop";
 var config_default = defineConfig({
   branch,
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  // Get this from tina.io
-  token: process.env.TINA_TOKEN || "",
-  // Get this from tina.io
+  // Remove cloud authentication - use local mode
+  clientId: "",
+  // Empty for local mode
+  token: "",
+  // Empty for local mode
   build: {
     outputFolder: "public/admin",
     publicFolder: "public"
