@@ -8,7 +8,7 @@ var config_default = defineConfig({
   token: process.env.TINA_TOKEN || "",
   // Get this from tina.io
   build: {
-    outputFolder: "admin",
+    outputFolder: "public/admin",
     publicFolder: "public"
   },
   media: {
