@@ -1,10 +1,12 @@
-# GitHub OAuth backend for Vercel deployment
+# GitHub backend for personal repository
 backend:
   name: github
   repo: davidcerniglia/motion-hive
   branch: main
+  auth_endpoint: https://github.com/login/oauth/authorize
+  token_endpoint: https://github.com/login/oauth/access_token
 
-# Enable local backend for development (temporarily)
+# Enable local backend for development
 local_backend: true
 
 media_folder: "public/uploads"

@@ -4,8 +4,8 @@ import { useEffect } from 'react'
 
 export default function AdminPage() {
   useEffect(() => {
-    // Redirect to the CMS HTML file in the admin directory
-    window.location.href = '/admin/cms.html'
+    // Redirect to the standalone CMS HTML file
+    window.location.href = '/admin/index.html'
   }, [])
 
   return (

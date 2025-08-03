@@ -4,7 +4,12 @@
   "rewrites": [
     {
       "source": "/admin",
-      "destination": "/admin/cms.html"
+      "destination": "/admin/index.html"
     }
-  ]
+  ],
+  "functions": {
+    "src/app/admin/page.tsx": {
+      "maxDuration": 10
+    }
+  }
 } 
