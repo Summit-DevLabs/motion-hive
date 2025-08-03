@@ -9,20 +9,12 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // Configure GitHub OAuth
+    // Configure Netlify Identity for GitHub OAuth
     if (window.CMS) {
-      window.CMS.registerBackend('github', {
-        init: () => ({
-          login: () => {
-            // Your actual GitHub OAuth client ID
-            const clientId = 'Ov23liBbz7ixIo7Cozt4';
-            const redirectUri = window.location.origin + '/admin/cms.html';
-            const scope = 'repo';
-            const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}`;
-            window.location.href = authUrl;
-          }
-        })
-      });
+      // Set the Netlify site ID for authentication
+      window.netlifyIdentity = {
+        site_id: 'motion-hive-decap-cms-auth.netlify.app'
+      };
     }
   </script>
 </body>

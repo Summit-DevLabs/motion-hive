@@ -50,6 +50,10 @@ For production deployment on Vercel, you need to set up Netlify Identity for Git
 3. **Go to Registration** and set it to **Invite only** (recommended)
 4. **Go to Services > Git Gateway** and click **Enable Git Gateway**
 5. **Add your Vercel domain** (`motion-hive.vercel.app`) to the allowed domains in Identity settings
+6. **Configure OAuth providers**:
+   - Go to **Services > OAuth**
+   - Click **Install provider** and select **GitHub**
+   - Configure the GitHub OAuth app settings
 
 #### Step 3: Deploy to Vercel
 
@@ -68,7 +72,8 @@ The current configuration uses:
 
 **Files configured**:
 - `public/admin/config.yml` - Decap CMS configuration
-- `public/admin/index.html` - Admin interface with Netlify Identity widget
+- `public/admin/cms.html` - Admin interface with Netlify Identity widget
+- `src/app/admin/page.tsx` - Admin page wrapper that redirects to CMS
 - `vercel.json` - Vercel configuration for serving static admin files
 
 ### 4. Content Structure
@@ -120,11 +125,12 @@ Media files are stored in `public/uploads/` and are accessible at `/uploads/` in
 1. **"Not found" error when clicking GitHub login**:
    - Make sure Netlify Identity is properly configured
    - Check that your Vercel domain is added to Netlify Identity allowed domains
-   - Verify the Netlify Identity widget is loaded in `public/admin/index.html`
+   - Verify the Netlify Identity widget is loaded in `public/admin/cms.html`
+   - Ensure GitHub OAuth provider is configured in Netlify Identity
 
 2. **Malformed URL errors**:
-   - This was fixed by removing custom OAuth endpoints from `config.yml`
-   - Decap CMS now uses Netlify's authentication proxy correctly
+   - This was fixed by using the working configuration from commit b52a7b75b8f1b3dbbf34a96c4b6ecad40ef9883b
+   - Using static file approach with proper Vercel rewrites
 
 3. **Organization access prompts**:
    - The current setup should only request access to your personal repositories
@@ -138,10 +144,9 @@ Media files are stored in `public/uploads/` and are accessible at `/uploads/` in
 
 ## Recent Fixes Applied
 
-- **Fixed malformed OAuth URLs** by removing custom `auth_endpoint` and `token_endpoint` from config
-- **Removed conflicting custom OAuth implementation** from `index.html`
-- **Added proper Netlify Identity widget** for GitHub authentication
-- **Simplified backend configuration** to use standard GitHub backend
-- **Updated admin page wrapper** to handle OAuth callbacks properly
+- **Restored working configuration** from commit b52a7b75b8f1b3dbbf34a96c4b6ecad40ef9883b
+- **Using static file approach** with `public/admin/cms.html` and `public/admin/config.yml`
+- **Simple Vercel rewrites** to serve admin files correctly
+- **Netlify Identity integration** for GitHub OAuth authentication
 
 For more information, visit the [Decap CMS documentation](https://decapcms.org/docs/intro/). 
