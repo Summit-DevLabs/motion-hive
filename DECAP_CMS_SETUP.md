@@ -69,7 +69,7 @@ The current configuration uses:
 **Files configured**:
 - `public/admin/config.yml` - Decap CMS configuration
 - `public/admin/index.html` - Admin interface with Netlify Identity widget
-- `src/app/admin/page.tsx` - Admin page wrapper
+- `vercel.json` - Vercel configuration for serving static admin files
 
 ### 4. Content Structure
 
