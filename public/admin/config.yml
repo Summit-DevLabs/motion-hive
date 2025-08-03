@@ -3,8 +3,6 @@ backend:
   name: github
   repo: davidcerniglia/motion-hive
   branch: main
-  # Use Netlify Identity for authentication
-  site_id: motion-hive-decap-cms-auth.netlify.app
 
 # Enable local backend for development
 local_backend: true
