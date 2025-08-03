@@ -3,6 +3,7 @@ import { Inter, Lexend, Space_Grotesk } from 'next/font/google'
 import clsx from 'clsx'
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
+import Script from 'next/script'
 
 import '@/styles/tailwind.css'
 
@@ -48,6 +49,9 @@ export default function RootLayout({
         spaceGrotesk.variable,
       )}
     >
+      <head>
+        <Script src="https://identity.netlify.com/v1/netlify-identity-widget.js" />
+      </head>
       <body className="flex h-full flex-col">
         <Header />
         <main className="flex-grow bg-primary">{children}</main>

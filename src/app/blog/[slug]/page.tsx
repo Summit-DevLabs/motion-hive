@@ -1,64 +1,8 @@
 import Image from 'next/image'
-import { client } from '../../../../tina/__generated__/client'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import { getPostBySlug } from '../../../lib/markdown'
 import { CheckCircleIcon, InformationCircleIcon } from '@heroicons/react/20/solid'
 import type { Metadata } from 'next'
-
-// Add dynamic flag to prevent static generation
-export const dynamic = 'force-dynamic'
-
-const components = {
-	h2: (props: any) => (
-		<h2 className="mt-16 text-pretty text-3xl font-semibold tracking-tight text-light-gold" {...props} />
-	),
-	p: (props: any) => {
-		if (typeof props.children === 'object' && props.children.props?.src) {
-			return (
-				<figure className="my-8">
-					<Image
-						src={props.children.props.src}
-						width={1200}
-						height={600}
-						alt={props.children.props.alt || ""}
-						className="aspect-video rounded-xl bg-gray-50 object-cover"
-					/>
-					{props.children.props.alt && (
-						<figcaption className="mt-4 flex gap-x-2 text-sm/6 text-gray-500">
-							<InformationCircleIcon aria-hidden="true" className="mt-0.5 size-5 flex-none text-gray-300" />
-							{props.children.props.alt}
-						</figcaption>
-					)}
-				</figure>
-			);
-		}
-		return <p className="mt-6 text-white" {...props} />;
-	},
-	blockquote: (props: any) => (
-		<figure className="mt-10 border-l border-indigo-600 pl-9">
-			<blockquote className="font-semibold text-white" {...props} />
-		</figure>
-	),
-	ul: (props: any) => (
-		<ul role="list" className="mt-8 max-w-xl space-y-8 text-white" {...props} />
-	),
-	li: (props: any) => (
-		<li className="flex gap-x-3">
-			<CheckCircleIcon aria-hidden="true" className="mt-1 size-5 flex-none text-light-gold" />
-			<span>{props.children}</span>
-		</li>
-	),
-	hr: (props: any) => <hr {...props} className="hidden" />,
-	img: (props: any) => (
-		<Image
-			{...props}
-			width={1200}
-			height={600}
-			className="aspect-video rounded-xl bg-gray-50 object-cover"
-			alt={props.alt || ""}
-			src={props.src || props.url || null}
-		/>
-	)
-};
+import ReactMarkdown from 'react-markdown'
 
 type Props = {
 	params: { slug: string }
@@ -67,8 +11,7 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	try {
 		const { slug } = params;
-		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
-		const post = response.data.post
+		const post = getPostBySlug(slug)
 		
 		return {
 			title: post?.title || 'Blog Post',
@@ -86,8 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPost({ params }: Props) {
 	try {
 		const { slug } = params;
-		const response = await client.queries.post({ relativePath: `${slug}.mdx` })
-		const post = response.data.post
+		const post = getPostBySlug(slug)
 
 		if (!post) {
 			return (
@@ -120,8 +62,70 @@ export default async function BlogPost({ params }: Props) {
 							/>
 						</figure>
 					)}
-					<div className="mt-10 max-w-2xl">
-						<TinaMarkdown content={post.body} components={components} />
+					<div className="mt-10 max-w-2xl prose prose-invert">
+						<ReactMarkdown
+							components={{
+								h2: ({ children, ...props }) => (
+									<h2 className="mt-16 text-pretty text-3xl font-semibold tracking-tight text-light-gold" {...props}>
+										{children}
+									</h2>
+								),
+								p: ({ children, ...props }) => {
+									// Check if this paragraph contains an image
+									if (typeof children === 'object' && children && 'props' in children && children.props?.src) {
+										return (
+											<figure className="my-8">
+												<Image
+													src={children.props.src}
+													width={1200}
+													height={600}
+													alt={children.props.alt || ""}
+													className="aspect-video rounded-xl bg-gray-50 object-cover"
+												/>
+												{children.props.alt && (
+													<figcaption className="mt-4 flex gap-x-2 text-sm/6 text-gray-500">
+														<InformationCircleIcon aria-hidden="true" className="mt-0.5 size-5 flex-none text-gray-300" />
+														{children.props.alt}
+													</figcaption>
+												)}
+											</figure>
+										);
+									}
+									return <p className="mt-6 text-white" {...props}>{children}</p>;
+								},
+								blockquote: ({ children, ...props }) => (
+									<figure className="mt-10 border-l border-indigo-600 pl-9">
+										<blockquote className="font-semibold text-white" {...props}>
+											{children}
+										</blockquote>
+									</figure>
+								),
+								ul: ({ children, ...props }) => (
+									<ul role="list" className="mt-8 max-w-xl space-y-8 text-white" {...props}>
+										{children}
+									</ul>
+								),
+								li: ({ children, ...props }) => (
+									<li className="flex gap-x-3" {...props}>
+										<CheckCircleIcon aria-hidden="true" className="mt-1 size-5 flex-none text-light-gold" />
+										<span>{children}</span>
+									</li>
+								),
+								hr: ({ ...props }) => <hr {...props} className="hidden" />,
+								img: ({ src, alt, ...props }) => (
+									<Image
+										{...props}
+										width={1200}
+										height={600}
+										className="aspect-video rounded-xl bg-gray-50 object-cover"
+										alt={alt || ""}
+										src={src || ""}
+									/>
+								)
+							}}
+						>
+							{post.body}
+						</ReactMarkdown>
 					</div>
 				</div>
 			</div>

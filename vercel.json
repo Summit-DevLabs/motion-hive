@@ -1,5 +1,10 @@
 {
-  "buildCommand": "npm run admin:build",
-  "outputDirectory": "public/admin",
-  "installCommand": "npm install"
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "rewrites": [
+    {
+      "source": "/admin",
+      "destination": "/admin/cms.html"
+    }
+  ]
 } 

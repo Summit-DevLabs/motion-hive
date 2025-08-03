@@ -1,14 +1,10 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { client } from '../../../tina/__generated__/client'
-
-// Add dynamic flag to prevent static generation of this page
-export const dynamic = 'force-dynamic'
+import { getAllPosts } from '../../lib/markdown'
 
 export default async function BlogIndex() {
   try {
-    const postsResponse = await client.queries.postConnection()
-    const posts = postsResponse.data.postConnection.edges?.map((edge) => edge?.node) || []
+    const posts = getAllPosts()
 
     return (
       <div className="bg-primary py-24 sm:py-32">
@@ -20,8 +16,8 @@ export default async function BlogIndex() {
             </p>
           </div>
           <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-            {posts.map((post) => post! && (
-              <article key={post._sys.filename} className="flex flex-col items-start">
+            {posts.map((post) => (
+              <article key={post.slug} className="flex flex-col items-start">
                 {post.heroImage && (
                   <div className="relative w-full">
                     <Image
@@ -41,7 +37,7 @@ export default async function BlogIndex() {
                   </div>
                   <div className="group relative">
                     <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                      <Link href={`/blog/${post._sys.filename.replace('.mdx', '')}`}>
+                      <Link href={`/blog/${post.slug}`}>
                         <span className="absolute inset-0" />
                         {post.title}
                       </Link>
