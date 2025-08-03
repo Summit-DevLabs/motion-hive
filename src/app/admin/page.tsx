@@ -1,0 +1,23 @@
+import { readFileSync } from 'fs'
+import { join } from 'path'
+
+export default function AdminPage() {
+  return (
+    <div dangerouslySetInnerHTML={{
+      __html: `
+        <!doctype html>
+        <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <title>Motion Hive - Content Manager</title>
+          <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+        </head>
+        <body>
+          <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+        </body>
+        </html>
+      `
+    }} />
+  )
+} 
