@@ -1,34 +1,19 @@
-import { Metadata } from 'next'
+'use client'
 
-export const metadata: Metadata = {
-  title: 'Motion Hive - Content Manager',
-  description: 'Admin interface for managing content',
-}
+import { useEffect } from 'react'
 
 export default function AdminPage() {
+  useEffect(() => {
+    // Redirect to the CMS HTML file in the admin directory
+    window.location.href = '/admin/cms.html'
+  }, [])
+
   return (
-    <div dangerouslySetInnerHTML={{
-      __html: `
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Motion Hive - Content Manager</title>
-          <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-        </head>
-        <body>
-          <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-          <script>
-            // Handle OAuth callback
-            if (window.location.search.includes('code=')) {
-              // This is a GitHub OAuth callback
-              console.log('OAuth callback detected');
-            }
-          </script>
-        </body>
-        </html>
-      `
-    }} />
+    <div className="min-h-screen bg-white flex items-center justify-center">
+      <div className="text-center">
+        <h1 className="text-2xl font-bold mb-4">Loading Decap CMS...</h1>
+        <p>Redirecting to the content management interface...</p>
+      </div>
+    </div>
   )
 } 

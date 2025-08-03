@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Hive - Content Manager</title>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // Configure GitHub OAuth
+    if (window.CMS) {
+      window.CMS.registerBackend('github', {
+        init: () => ({
+          login: () => {
+            // Your actual GitHub OAuth client ID
+            const clientId = 'Ov23liBbz7ixIo7Cozt4';
+            const redirectUri = window.location.origin + '/admin/cms.html';
+            const scope = 'repo';
+            const authUrl = `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${scope}`;
+            window.location.href = authUrl;
+          }
+        })
+      });
+    }
+  </script>
+</body>
+</html> 
