@@ -3,7 +3,6 @@ backend:
   name: github
   repo: Summit-DevLabs/motion-hive
   branch: main
-  site_id: motion-hive-decap-cms-auth.netlify.app
 
 # Enable local backend for development
 local_backend: true
