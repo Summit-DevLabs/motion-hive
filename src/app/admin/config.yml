@@ -1,0 +1,26 @@
+# GitHub backend for personal repository
+backend:
+  name: github
+  repo: davidcerniglia/motion-hive
+  branch: main
+
+# Enable local backend for development
+local_backend: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    format: "frontmatter"
+    extension: "mdx"
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Hero Image", name: "heroImage", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" } 
