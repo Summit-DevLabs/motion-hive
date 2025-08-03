@@ -6,22 +6,23 @@ import { SlimLayout } from '@/components/SlimLayout'
 
 export default function NotFound() {
   return (
-    <SlimLayout>
-      <div className="flex">
-        <Link href="/" aria-label="Home">
-          <Logo className="h-10 w-auto" />
-        </Link>
+    <div className="bg-primary px-6 py-32 lg:px-8">
+      <div className="mx-auto max-w-3xl text-base/7 text-white">
+        <h1 className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-light-gold sm:text-5xl">
+          404 - Page Not Found
+        </h1>
+        <p className="mt-6 text-xl/8">
+          The page you&apos;re looking for doesn&apos;t exist.
+        </p>
+        <div className="mt-10">
+          <a 
+            href="/" 
+            className="text-light-gold hover:text-white transition-colors"
+          >
+            ← Back to Home
+          </a>
+        </div>
       </div>
-      <p className="mt-20 text-sm font-medium text-gray-700">404</p>
-      <h1 className="mt-3 text-lg font-semibold text-gray-900">
-        Page not found
-      </h1>
-      <p className="mt-3 text-sm text-gray-700">
-        Sorry, we couldn’t find the page you’re looking for.
-      </p>
-      <Button href="/" className="mt-10">
-        Go back home
-      </Button>
-    </SlimLayout>
+    </div>
   )
 }

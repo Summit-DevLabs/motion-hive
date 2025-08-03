@@ -7,7 +7,7 @@ This project has been migrated from Tina CMS to Decap CMS. Here's how to set it 
 - Removed all Tina CMS dependencies and configuration
 - Added Decap CMS configuration
 - Updated blog components to use markdown files directly
-- Added Netlify Identity for authentication
+- Configured GitHub OAuth authentication with Netlify Identity
 
 ## Setup Instructions
 
@@ -28,41 +28,50 @@ npx decap-server
 
 ### 2. Production Setup
 
-For production deployment, you have two options:
+For production deployment on Vercel, you need to set up Netlify Identity for GitHub authentication:
 
-#### Option A: Netlify Git Gateway (Recommended)
+#### Step 1: Create Netlify Site (for authentication only)
 
-1. **Deploy to Netlify**:
-   ```bash
-   npm install -g netlify-cli
-   netlify deploy --prod
-   ```
+1. **Go to [netlify.com](https://netlify.com)** and sign up/login
+2. **Click "New site from Git"** or "Add new site" → "Import an existing project"
+3. **Connect your GitHub account** (if not already connected)
+4. **Select your repository**: `davidcerniglia/motion-hive`
+5. **Configure the build settings**:
+   - Build command: `npm run build`
+   - Publish directory: `.next`
+6. **Click "Deploy site"**
 
-2. **Configure Netlify**:
-   - Go to Site Settings > Identity
-   - Enable Identity
-   - Enable Git Gateway
-   - Configure registration (invite-only recommended)
-   - Set up email templates
+**Note**: You don't need to actually use Netlify for hosting - this is just for authentication.
 
-3. **Update your Vercel site** to use the Netlify CMS URL
+#### Step 2: Configure Netlify Identity
 
-#### Option B: GitHub OAuth (Vercel-only)
+1. **In your Netlify dashboard**, go to **Site Settings > Identity**
+2. **Click "Enable Identity"**
+3. **Go to Registration** and set it to **Invite only** (recommended)
+4. **Go to Services > Git Gateway** and click **Enable Git Gateway**
+5. **Add your Vercel domain** (`motion-hive.vercel.app`) to the allowed domains in Identity settings
 
-1. **Update the config** in `public/admin/config.yml`:
-   ```yaml
-   backend:
-     name: github
-     repo: your-username/your-repo-name
-     branch: main
-   ```
+#### Step 3: Deploy to Vercel
 
-2. **Deploy to Vercel**:
-   ```bash
-   vercel --prod
-   ```
+```bash
+vercel --prod
+```
 
-### 3. Content Structure
+### 3. Authentication Configuration
+
+The current configuration uses:
+
+- **Backend**: GitHub with Netlify Identity proxy
+- **Repository**: `davidcerniglia/motion-hive`
+- **Branch**: `main`
+- **Authentication**: Netlify Identity handles GitHub OAuth
+
+**Files configured**:
+- `public/admin/config.yml` - Decap CMS configuration
+- `public/admin/index.html` - Admin interface with Netlify Identity widget
+- `src/app/admin/page.tsx` - Admin page wrapper
+
+### 4. Content Structure
 
 Blog posts are stored in `content/posts/` as markdown files with frontmatter:
 
@@ -79,15 +88,16 @@ author: "Author Name"
 Your post content here...
 ```
 
-### 4. Media Files
+### 5. Media Files
 
 Media files are stored in `public/uploads/` and are accessible at `/uploads/` in your site.
 
-### 5. Admin Access
+### 6. Admin Access
 
 - Visit `/admin` to access the CMS interface
-- You'll need to authenticate with your Git provider or Netlify Identity
-- Create, edit, and delete blog posts through the friendly interface
+- Click "Login with GitHub" to authenticate
+- You'll be redirected to GitHub for authorization
+- After authorization, you'll have access to create, edit, and delete blog posts
 
 ## Benefits of Decap CMS
 
@@ -105,9 +115,33 @@ Media files are stored in `public/uploads/` and are accessible at `/uploads/` in
 
 ## Troubleshooting
 
+### Authentication Issues
+
+1. **"Not found" error when clicking GitHub login**:
+   - Make sure Netlify Identity is properly configured
+   - Check that your Vercel domain is added to Netlify Identity allowed domains
+   - Verify the Netlify Identity widget is loaded in `public/admin/index.html`
+
+2. **Malformed URL errors**:
+   - This was fixed by removing custom OAuth endpoints from `config.yml`
+   - Decap CMS now uses Netlify's authentication proxy correctly
+
+3. **Organization access prompts**:
+   - The current setup should only request access to your personal repositories
+   - Make sure you're logging in with your personal GitHub account
+
+### Other Issues
+
 1. **Local backend not working**: Make sure you're running `npx decap-server` and visiting `/admin`
-2. **Authentication issues**: Check your Git provider settings or Netlify Identity configuration
-3. **Media uploads failing**: Ensure the `public/uploads/` directory exists and is writable
-4. **Vercel deployment issues**: Make sure your `vercel.json` is properly configured
+2. **Media uploads failing**: Ensure the `public/uploads/` directory exists and is writable
+3. **Vercel deployment issues**: Make sure your `vercel.json` is properly configured
+
+## Recent Fixes Applied
+
+- **Fixed malformed OAuth URLs** by removing custom `auth_endpoint` and `token_endpoint` from config
+- **Removed conflicting custom OAuth implementation** from `index.html`
+- **Added proper Netlify Identity widget** for GitHub authentication
+- **Simplified backend configuration** to use standard GitHub backend
+- **Updated admin page wrapper** to handle OAuth callbacks properly
 
 For more information, visit the [Decap CMS documentation](https://decapcms.org/docs/intro/). 

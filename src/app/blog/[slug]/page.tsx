@@ -112,9 +112,8 @@ export default async function BlogPost({ params }: Props) {
 									</li>
 								),
 								hr: ({ ...props }) => <hr {...props} className="hidden" />,
-								img: ({ src, alt, ...props }) => (
+								img: ({ src, alt }) => (
 									<Image
-										{...props}
 										width={1200}
 										height={600}
 										className="aspect-video rounded-xl bg-gray-50 object-cover"

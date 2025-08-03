@@ -3,8 +3,6 @@ backend:
   name: github
   repo: davidcerniglia/motion-hive
   branch: main
-  auth_endpoint: https://github.com/login/oauth/authorize
-  token_endpoint: https://github.com/login/oauth/access_token
 
 # Enable local backend for development
 local_backend: true

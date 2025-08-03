@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Team() {
   return (
     <div className="bg-primary pointer-events-none py-24 sm:py-32">
@@ -5,7 +7,7 @@ export default function Team() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">Our team</h2>
           <p className="mt-6 text-lg/8 text-white">
-            We’re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
+            We&apos;re a dynamic group of individuals who are passionate about what we do and dedicated to delivering the
             best results for our clients.
           </p>
         </div>
@@ -15,7 +17,13 @@ export default function Team() {
         >
           {people.map((person) => (
             <li key={person.name}>
-              <img alt="" src={person.imageUrl} className="aspect-[14/13] w-full rounded-2xl object-cover" />
+              <Image 
+                alt="" 
+                src={person.imageUrl} 
+                width={400}
+                height={400}
+                className="aspect-[14/13] w-full rounded-2xl object-cover" 
+              />
               <h3 className="mt-6 text-lg/8 font-semibold tracking-tight text-white">{person.name}</h3>
               <p className="text-base/7 text-white">{person.role}</p>
               <p className="text-sm/6 text-white">{person.location}</p>
