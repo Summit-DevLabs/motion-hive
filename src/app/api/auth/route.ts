@@ -7,8 +7,11 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
   const code = searchParams.get('code');
 
+  // If no code, redirect to GitHub OAuth
   if (!code) {
-    return NextResponse.json({ error: 'No code provided' }, { status: 400 });
+    const scope = searchParams.get('scope') || 'repo';
+    const githubAuthUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&scope=${scope}&redirect_uri=${encodeURIComponent('https://motion-hive.vercel.app/api/auth')}`;
+    return NextResponse.redirect(githubAuthUrl);
   }
 
   if (!CLIENT_ID || !CLIENT_SECRET) {
