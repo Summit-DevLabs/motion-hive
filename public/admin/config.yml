@@ -1,11 +1,7 @@
-# GitHub backend for personal repository
 backend:
   name: github
   repo: Summit-DevLabs/motion-hive
-  branch: main
-
-# Enable local backend for development
-local_backend: true
+  branch: develop
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
