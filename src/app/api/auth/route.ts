@@ -36,10 +36,29 @@ export async function GET(request: NextRequest) {
     const tokenData = await tokenResponse.json();
 
     if (tokenData.access_token) {
-      // Return the token in the format expected by Decap CMS
-      return NextResponse.json({
-        token: tokenData.access_token,
-        provider: 'github',
+      // Return HTML that posts the token back to the CMS
+      const html = `
+        <script>
+          (function() {
+            function receiveMessage(e) {
+              console.log("receiveMessage %o", e);
+              window.opener.postMessage(
+                'authorization:github:success:${JSON.stringify({
+                  token: tokenData.access_token,
+                  provider: 'github'
+                })}', 
+                e.origin
+              );
+              window.removeEventListener("message", receiveMessage, false);
+            }
+            window.addEventListener("message", receiveMessage, false);
+            console.log("Posting message");
+            window.opener.postMessage("authorizing:github", "*");
+          })()
+        </script>
+      `;
+      return new Response(html, {
+        headers: { 'Content-Type': 'text/html' },
       });
     } else {
       return NextResponse.json({ error: 'Failed to get access token' }, { status: 400 });
